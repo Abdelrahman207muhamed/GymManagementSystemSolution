@@ -27,7 +27,6 @@ namespace GymManagementDAL.Data.Contexts
         public DbSet<Session> Sessions { get; set; }
         public DbSet<MemberShip> MemberShips { get; set; }
         public DbSet<MemberSession> MemberSessions { get; set; }
-
         #endregion
     }
 }
