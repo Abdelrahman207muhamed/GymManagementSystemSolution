@@ -9,10 +9,15 @@ namespace GymManagementDAL.Data.Contexts
 {
     public class GymDbContext :DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //Allow Dependancy Injection
+        public GymDbContext(DbContextOptions<GymDbContext> options):base(options)   
         {
-            optionsBuilder.UseSqlServer("Server = . ; Database = GymManagementG03 ; Trusted_Connection = true ; TrustServerCertificate = true ");
+            
         }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Server = . ; Database = GymManagementG03 ; Trusted_Connection = true ; TrustServerCertificate = true ");
+        //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
